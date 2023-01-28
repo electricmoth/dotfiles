@@ -19,3 +19,13 @@ set incsearch
 
 " wrap text
 set wrap
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
+call plug#end()
+
+" powerline fonts for airline
+" let g:airline_powerline_fonts = 1
+
