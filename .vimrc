@@ -29,3 +29,7 @@ call plug#end()
 " powerline fonts for airline
 " let g:airline_powerline_fonts = 1
 
+" set airline theme
+let g:airline_theme='bubblegum'
+" others, base16, bubblegum, deus, wombat, luna, molokai, ubaryd
+
