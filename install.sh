@@ -2,10 +2,9 @@
 
 echo "~~~ installing terminal apps ~~~"
 # build-essential for gcc, nodejs for coc (autocomplete) in nvim
-sudo apt install build-essential curl cmatrix exiftool manpages-dev neomutt neovim neofetch nodejs pass ranger ripgrep tmux tty-clock w3m zathura zsh -y
+sudo apt install bat build-essential curl cmatrix exiftool manpages-dev neomutt neovim neofetch nmap nodejs pass ranger ripgrep sxiv tmux tty-clock w3m wireshark zathura zsh -y
 
-# TODO install i3-gaps etc
-# TODO no login screen?
+# TODO rm login screen
 
 # -------------- SIGNAL MESSENGER ------------------------ #
 
@@ -24,11 +23,8 @@ sudo apt update && sudo apt install signal-desktop
 # -----------------------
 
 # SESSION
-# TODO debug appimage
 echo "~~~ installing session ~~~"
-wget https://getsession.org/linux -O session.AppImage
-chmod +x session.AppImage
-sudo mv session.AppImage /opt/
+snap install session-desktop
 
 # DOTFILES
 [ -d ~/dotfiles ] && echo "~~~ dotfiles found ~~~" || echo "~~~ cloning dotfiles from github ~~~" && git clone https://github.com/electricmoth/dotfiles.git
@@ -69,7 +65,6 @@ unzip Mononoki.zip -d ~/.fonts
 fc-cache -fv
 
 # ZSH
-# TODO debug
 # autosuggestions
 echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-autosuggestions/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/shells:zsh-users:zsh-autosuggestions.list
 curl -fsSL https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-autosuggestions.gpg > /dev/null
@@ -84,4 +79,20 @@ chsh -s $(which zsh)
 # remove "quiet splash" from /etc/default/grub, and also create a backup of orig with .bak suffix
 echo "~~~ ditching quiet boot ~~~"
 sudo sed -i.bak 's/quiet splash//' /etc/default/grub
+
+
+# KEYBOARD
+# remap caps to esc (mainly for vim)
+echo "~~~ remapping capslock to esc (reboot to take effect) ~~~"
+sudo sed -i.bak 's/XKBOPTIONS=""/XKBOPTIONS="caps:escape"/' /etc/default/keyboard
+
+# i3
+echo "install i3?"
+read install_i3
+if [[ $install_i3 == y* ]]; then
+    echo "installing i3..."
+    sudo apt install i3-wm i3status suckless-tools i3lock
+else
+    echo "not installing i3."
+fi
 
