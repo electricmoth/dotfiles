@@ -25,11 +25,16 @@ font pango:Monoid Nerd Font 10
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i /home/osint/Pictures/win95.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/Pictures/win95.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# use brightnessctl to adjust display brightness.
+# NOTE may need to add user to video group if this does not work
+bindsym XF86MonBrightnessUp exec brightnessctl set 15+
+bindsym XF86MonBrightnessDown exec brightnessctl set 15-
 
 # use amixer to adjust volume
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
@@ -50,7 +55,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
- bindsym $mod+Shift+c kill
+ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"
