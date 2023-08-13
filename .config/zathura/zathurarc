@@ -1,6 +1,9 @@
+# dracula - modified to color the inputbar
+#
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
+set font "Monoid Nerd Font 10"
 # Dracula color theme for Zathura
 # Swaps Foreground for Background to get a light version if the user prefers
 
@@ -28,12 +31,14 @@ set index-active-bg             "#44475a" # Current Line
 set index-active-fg             "#f8f8f2" # Foreground
 
 set inputbar-bg                 "#282a36" # Background
-set inputbar-fg                 "#f8f8f2" # Foreground
-set statusbar-bg                "#282a36" # Background
-set statusbar-fg                "#f8f8f2" # Foreground
+set inputbar-fg                 "#ff79c6" # Pink"
+# set inputbar-fg                 "#f8f8f2" # Foreground
+set statusbar-bg                "#14151B" # shade darker than Background
+set statusbar-fg                "#bd93f9" # purple
+# set statusbar-fg                "#f8f8f2" # Foreground
 
-set highlight-color             "#ffb86c" # Orange
-set highlight-active-color      "#ff79c6" # Pink
+set highlight-active-color       "#ffb86c" # Orange
+set highlight-color              "#ff79c6" # Pink
 
 set default-bg                  "#282a36" # Background
 set default-fg                  "#f8f8f2" # Foreground
