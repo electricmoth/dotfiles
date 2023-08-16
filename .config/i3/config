@@ -33,13 +33,13 @@ exec --no-startup-id nm-applet
 
 # use brightnessctl to adjust display brightness.
 # NOTE may need to add user to video group if this does not work
-bindsym XF86MonBrightnessUp exec brightnessctl set 25+
-bindsym XF86MonBrightnessDown exec brightnessctl set 25-
+bindsym XF86MonBrightnessUp exec brightnessctl set 35+; exec notify-send -t 1000 -i /usr/share/icons/Humanity-Dark/status/48/sunny.svg "brightness: $(brightnessctl get)"
+bindsym XF86MonBrightnessDown exec brightnessctl set 35-; exec notify-send -t 1000 -i /usr/share/icons/Humanity-Dark/status/48/sunny.svg "brightness: $(brightnessctl get)"
 
 # use amixer to adjust volume
-bindsym XF86AudioMute exec amixer sset 'Master' toggle
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-low.svg
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-high.svg
+bindsym XF86AudioMute exec amixer sset 'Master' toggle; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-muted.svg
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -63,10 +63,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -87,7 +87,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+s split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -96,8 +96,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -107,7 +107,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -116,7 +116,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1 "
 set $ws2 "2 "
-set $ws3 "3 "
+set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -126,8 +126,8 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
@@ -138,8 +138,8 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace Terminal
-bindsym $mod+Shift+2 move container to workspace Firefox
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
@@ -249,10 +249,11 @@ bar {
 
     # dracula colors
     background #282A36
-    statusline #F8F8F2
+    # statusline #F8F8F2
+    statusline #cba6f7
     separator  #44475A
 
-    focused_workspace  #44475A #44475A #F8F8F2
+    focused_workspace  #44475A #44475A #cba6f7
     active_workspace   #282A36 #44475A #F8F8F2
     inactive_workspace #282A36 #282A36 #BFBFBF
     urgent_workspace   #FF5555 #FF5555 #F8F8F2

@@ -29,12 +29,16 @@ snap install session-desktop
 # DOTFILES
 [ -d ~/dotfiles ] && echo "~~~ dotfiles found ~~~" || echo "~~~ cloning dotfiles from github ~~~" && git clone https://github.com/electricmoth/dotfiles.git
 
+# BAT (better cat, not to be confused with bettercap)
+export BAT_THEME="Catpuccin-macchiato" # can also be set in .config/bat/config
+
 # NODE
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs
 
 # VIM
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# TODO make backups of everything in new .conf, and then move dotfile/.config/* to ~/.config/. then remove individual cp commands
 
 # NEOVIM
 # get vim-plug
