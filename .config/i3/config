@@ -37,9 +37,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 35+; exec notify-send -t 1000
 bindsym XF86MonBrightnessDown exec brightnessctl set 35-; exec notify-send -t 1000 -i /usr/share/icons/Humanity-Dark/status/48/sunny.svg "brightness: $(brightnessctl get)"
 
 # use amixer to adjust volume
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-low.svg
-bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-high.svg
-bindsym XF86AudioMute exec amixer sset 'Master' toggle; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-muted.svg
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-low.svg "vol down"
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-high.svg "vol up"
+bindsym XF86AudioMute exec amixer sset 'Master' toggle; exec notify-send -t 1000 -i /usr/share/icons/HighContrast/scalable/status/audio-volume-muted.svg " "
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
