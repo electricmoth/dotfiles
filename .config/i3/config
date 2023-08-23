@@ -31,6 +31,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/Pict
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# bind "tools" key to launch Firefox (thinkpad)
+bindsym XF86Tools exec firefox
+
 # use brightnessctl to adjust display brightness.
 # NOTE may need to add user to video group if this does not work
 bindsym XF86MonBrightnessUp exec brightnessctl set 35+; exec notify-send -t 1000 -i /usr/share/icons/Humanity-Dark/status/48/sunny.svg "brightness: $(brightnessctl get)"
