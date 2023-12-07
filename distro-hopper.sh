@@ -9,10 +9,10 @@ set -x
 
 
 # build-essential for gcc, nodejs for coc (autocomplete) in nvim
-cli_tools=("bat" "build-essential" "curl" "matrix" "exiftool" "manpages-dev" "neomutt" "neovim" "neofetch" "nmap" "nodejs" "most" "pass" "ranger" "ripgrep" "sxiv" "tmux" "tty-clock" "w3m" "wireshark" "zathura" "zsh")
+cli_tools=("bat" "build-essential" "curl" "matrix" "exiftool" "manpages-dev" "neomutt" "neovim" "neofetch" "nmap" "nodejs" "most" "pass" "ranger" "ripgrep" "sxiv" "tmux" "tty-clock" "unzip" "w3m"  "wget" "wireshark" "zathura" "zip" "zsh")
 
 echo "install standard-issue terminal apps? (y/n/l = list apps)"
-read install_tools
+read install_tools]'
 case $install_tools in
     y*)
         echo "[+] installing the usual cli tools"
