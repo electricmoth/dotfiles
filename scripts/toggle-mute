@@ -1,0 +1,15 @@
+#!/bin/bash
+
+mute_status=$( pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+echo $mute_status
+
+# toggle mute on/off
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+ if [[ $mute_status == "no" ]]; then
+
+     notify-send -u low "mute off" -i audio-volume-medium-symbolic
+
+else
+
+    notify-send -u low "mute on" -i audio-volume-muted-rtl-symbolic
+ fi

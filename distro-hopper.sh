@@ -114,7 +114,7 @@ if [[ $install_tpm == y* ]]; then
     echo "[+] installing tpm for tmux"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     # get tmux.conf from dotfiles repo
-    cp -vi ~/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+    cp -vi ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf
     # use new config file
     tmux source ~/.tmux.conf
     # install tpm plugins
